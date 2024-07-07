@@ -1,7 +1,15 @@
 package org.vetcabinet.branches.service;
 
-import org.springframework.stereotype.Service;
+import org.vetcabinet.branches.dto.BranchDto;
 
-//@Service
+import java.util.UUID;
+
 public interface BranchService {
+    BranchDto create(BranchDto branch);
+
+    BranchDto update(UUID uuid, BranchDto branch);
+
+    BranchDto get(UUID uuid);
+
+    void delete(UUID uuid);
 }

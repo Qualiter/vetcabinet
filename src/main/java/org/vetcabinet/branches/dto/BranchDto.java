@@ -1,9 +1,9 @@
 package org.vetcabinet.branches.dto;
 
-import org.vetcabinet.clinic.model.Clinic;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.vetcabinet.clinic.model.Clinic;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -24,4 +24,28 @@ public class BranchDto {
     private BigDecimal longitude;
     private Boolean isStoreyed;
     private Integer floor;
+
+    public BranchDto(String code,
+                     Clinic clinic,
+                     Boolean isMain,
+                     String name,
+                     String shortName,
+                     String fullAddress,
+                     String address,
+                     BigDecimal latitude,
+                     BigDecimal longitude,
+                     Boolean isStoreyed,
+                     Integer floor) {
+        this.code = code;
+        this.clinic = clinic;
+        this.isMain = isMain;
+        this.name = name;
+        this.shortName = shortName;
+        this.fullAddress = fullAddress;
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.isStoreyed = isStoreyed;
+        this.floor = floor;
+    }
 }

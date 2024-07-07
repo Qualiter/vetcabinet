@@ -21,4 +21,11 @@ public class CabinetDto {
     private String name;
     @NotBlank
     private Integer floor;
+  
+    public CabinetDto(Branch branch, Long number, String name, Integer floor) {
+        this.branch = branch;
+        this.number = number;
+        this.name = name;
+        this.floor = floor;
+    }
 }

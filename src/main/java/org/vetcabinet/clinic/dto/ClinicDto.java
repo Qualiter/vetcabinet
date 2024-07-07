@@ -21,4 +21,11 @@ public class ClinicDto {
     private String shortName;
     @NotBlank
     private ClinicType type;
+  
+    public ClinicDto(String code, String name, String shortName, ClinicType type) {
+        this.code = code;
+        this.name = name;
+        this.shortName = shortName;
+        this.type = type;
+    }
 }
