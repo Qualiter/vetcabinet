@@ -1,10 +1,10 @@
 package org.vetcabinet.clinic.dto;
 
+import org.vetcabinet.enums.ClinicType;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.vetcabinet.enums.ClinicType;
 
 import java.util.UUID;
 
@@ -21,7 +21,7 @@ public class ClinicDto {
     private String shortName;
     @NotBlank
     private ClinicType type;
-
+  
     public ClinicDto(String code, String name, String shortName, ClinicType type) {
         this.code = code;
         this.name = name;

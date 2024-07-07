@@ -25,7 +25,6 @@ public class ClinicServiceImpl implements ClinicService {
         }
         Clinic saved = clinicRepository.save(clinicData);
         return clinicMapper.toClinicDto(saved);
-    }
 
     @Override
     public ClinicDto update(UUID uuid, ClinicDto clinic) {
