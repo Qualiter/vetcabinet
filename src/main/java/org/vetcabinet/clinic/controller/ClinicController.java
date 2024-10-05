@@ -25,7 +25,7 @@ public class ClinicController {
         return service.create(clinic);
     }
 
-    @PutMapping("/{uuid}")
+    @PatchMapping("/{uuid}")
     public ClinicDto update(@RequestParam UUID uuid, @RequestBody ClinicDto clinic) {
         return service.update(uuid, clinic);
     }

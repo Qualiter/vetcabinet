@@ -1,6 +1,6 @@
 package org.vetcabinet.clinic.dto;
 
-import org.vetcabinet.enums.ClinicType;
+import org.vetcabinet.clinic.model.ClinicType;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;

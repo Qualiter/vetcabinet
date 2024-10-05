@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 import org.vetcabinet.clinic.model.Clinic;
 
 import java.math.BigDecimal;
@@ -30,7 +34,11 @@ public class Branch {
     @Column(name = "full_address")
     private String fullAddress;
     private String address;
+    @JdbcTypeCode(SqlTypes.DECIMAL)
+    @Column(precision = 19, scale = 7)
     private BigDecimal latitude;
+    @JdbcTypeCode(SqlTypes.DECIMAL)
+    @Column(precision = 19, scale = 7)
     private BigDecimal longitude;
     @Column(name = "is_storeyed")
     private Boolean isStoreyed;
