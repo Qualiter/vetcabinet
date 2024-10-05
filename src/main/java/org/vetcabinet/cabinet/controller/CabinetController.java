@@ -25,7 +25,7 @@ public class CabinetController {
         return service.create(cabinet);
     }
 
-    @PutMapping("/{uuid}")
+    @PatchMapping("/{uuid}")
     public CabinetDto update(@RequestParam UUID uuid, @RequestBody CabinetDto cabinet) {
         return service.update(uuid, cabinet);
     }

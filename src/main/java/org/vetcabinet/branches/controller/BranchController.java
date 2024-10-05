@@ -25,7 +25,7 @@ public class BranchController {
         return service.create(branch);
     }
 
-    @PutMapping("/{uuid}")
+    @PatchMapping("/{uuid}")
     public BranchDto update(@RequestParam UUID uuid, @RequestBody BranchDto branch) {
         return service.update(uuid, branch);
     }

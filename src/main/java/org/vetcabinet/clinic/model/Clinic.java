@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.vetcabinet.enums.ClinicType;
 
 import java.util.UUID;
 
@@ -21,5 +20,6 @@ public class Clinic {
     private String name;
     @Column(name = "short_name")
     private String shortName;
+    @Enumerated(value = EnumType.STRING)
     private ClinicType type;
 }

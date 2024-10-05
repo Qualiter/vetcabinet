@@ -12,7 +12,7 @@ import org.vetcabinet.branches.service.BranchService;
 import org.vetcabinet.clinic.dto.ClinicDto;
 import org.vetcabinet.clinic.mapper.ClinicMapper;
 import org.vetcabinet.clinic.repository.ClinicRepository;
-import org.vetcabinet.enums.ClinicType;
+import org.vetcabinet.clinic.model.ClinicType;
 import org.vetcabinet.exception.AlreadyExistsException;
 import org.vetcabinet.exception.NotFoundException;
 
@@ -105,7 +105,6 @@ public class BranchesServiceImplTest {
 
     @Test
     void get_shouldReturnDataForBranch() {
-        clinicRepository.deleteAll();
         ClinicDto createdClinic = clinicService.create(clinicDto);
         branchDto.setClinic(clinicMapper.toClinic(createdClinic));
         BranchDto createdBranch = branchService.create(branchDto);

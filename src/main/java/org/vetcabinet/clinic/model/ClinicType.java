@@ -1,4 +1,4 @@
-package org.vetcabinet.enums;
+package org.vetcabinet.clinic.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
