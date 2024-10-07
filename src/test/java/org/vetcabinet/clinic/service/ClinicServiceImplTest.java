@@ -6,11 +6,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.vetcabinet.clinic.dto.ClinicDto;
-import org.vetcabinet.clinic.repository.ClinicRepository;
 import org.vetcabinet.clinic.model.ClinicType;
+import org.vetcabinet.clinic.repository.ClinicRepository;
 import org.vetcabinet.exception.AlreadyExistsException;
 import org.vetcabinet.exception.NotFoundException;
 
+import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -99,5 +100,18 @@ class ClinicServiceImplTest {
     void delete_shouldThrowExceptionIfClinicNotExists() {
         assertThrows(NotFoundException.class, () ->
                 clinicService.get(UUID.randomUUID()));
+    }
+
+    @Test
+    void getAll_shouldReturnEmptyList() {
+        assertTrue(clinicService.getAll(0, 10).isEmpty());
+    }
+
+    @Test
+    void getAll_shouldReturnData() {
+        clinicService.create(clinicDto);
+        List<ClinicDto> clinics = clinicService.getAll(0, 10);
+
+        assertEquals(1, clinics.size());
     }
 }

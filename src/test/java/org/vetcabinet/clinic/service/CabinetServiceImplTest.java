@@ -14,12 +14,13 @@ import org.vetcabinet.cabinet.repository.CabinetRepository;
 import org.vetcabinet.cabinet.service.CabinetService;
 import org.vetcabinet.clinic.dto.ClinicDto;
 import org.vetcabinet.clinic.mapper.ClinicMapper;
-import org.vetcabinet.clinic.repository.ClinicRepository;
 import org.vetcabinet.clinic.model.ClinicType;
+import org.vetcabinet.clinic.repository.ClinicRepository;
 import org.vetcabinet.exception.AlreadyExistsException;
 import org.vetcabinet.exception.NotFoundException;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -133,5 +134,22 @@ public class CabinetServiceImplTest {
     @Test
     void delete_shouldThrowExceptionIfCabinetNotExists() {
         assertThrows(NotFoundException.class, () -> cabinetService.delete(UUID.randomUUID()));
+    }
+
+    @Test
+    void getAll_shouldReturnEmptyList() {
+        assertTrue(cabinetService.getAll(0, 10).isEmpty());
+    }
+
+    @Test
+    void getAll_shouldReturnData() {
+        ClinicDto createdClinic = clinicService.create(clinicDto);
+        branchDto.setClinic(clinicMapper.toClinic(createdClinic));
+        BranchDto createdBranch = branchService.create(branchDto);
+        cabinetDto.setBranch(branchMapper.toBranch(createdBranch));
+        cabinetService.create(cabinetDto);
+        List<CabinetDto> cabinets = cabinetService.getAll(0, 10);
+
+        assertEquals(1, cabinets.size());
     }
 }

@@ -2,6 +2,7 @@ package org.vetcabinet.clinic.service;
 
 import org.vetcabinet.clinic.dto.ClinicDto;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface ClinicService {
@@ -12,4 +13,6 @@ public interface ClinicService {
     ClinicDto get(UUID uuid);
 
     void delete(UUID uuid);
+
+    List<ClinicDto> getAll(int offset, int limit);
 }

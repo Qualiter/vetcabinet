@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.vetcabinet.clinic.dto.ClinicDto;
 import org.vetcabinet.clinic.service.ClinicService;
 
+import java.util.List;
 import java.util.UUID;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -39,5 +40,11 @@ public class ClinicController {
     @ResponseStatus(NO_CONTENT)
     public void delete(@RequestParam UUID uuid) {
         service.delete(uuid);
+    }
+
+    @GetMapping
+    public List<ClinicDto> getAll(@RequestParam(defaultValue = "0") int offset,
+                                  @RequestParam(defaultValue = "10") int limit) {
+        return service.getAll(offset, limit);
     }
 }

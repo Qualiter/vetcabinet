@@ -2,6 +2,7 @@ package org.vetcabinet.branches.service;
 
 import org.vetcabinet.branches.dto.BranchDto;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface BranchService {
@@ -12,4 +13,6 @@ public interface BranchService {
     BranchDto get(UUID uuid);
 
     void delete(UUID uuid);
+
+    List<BranchDto> getAll(int offset, int limit);
 }

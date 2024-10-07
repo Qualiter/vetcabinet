@@ -1,10 +1,10 @@
 package org.vetcabinet.clinic.dto;
 
-import org.vetcabinet.clinic.model.ClinicType;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.vetcabinet.clinic.model.ClinicType;
 
 import java.util.UUID;
 
