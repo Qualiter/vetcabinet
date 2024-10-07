@@ -1,9 +1,9 @@
 package org.vetcabinet.user.model;
 
-import org.springframework.security.core.GrantedAuthority;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
 
 import static jakarta.persistence.EnumType.STRING;
 

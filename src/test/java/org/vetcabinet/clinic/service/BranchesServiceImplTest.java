@@ -11,12 +11,13 @@ import org.vetcabinet.branches.repository.BranchRepository;
 import org.vetcabinet.branches.service.BranchService;
 import org.vetcabinet.clinic.dto.ClinicDto;
 import org.vetcabinet.clinic.mapper.ClinicMapper;
-import org.vetcabinet.clinic.repository.ClinicRepository;
 import org.vetcabinet.clinic.model.ClinicType;
+import org.vetcabinet.clinic.repository.ClinicRepository;
 import org.vetcabinet.exception.AlreadyExistsException;
 import org.vetcabinet.exception.NotFoundException;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -145,5 +146,20 @@ public class BranchesServiceImplTest {
     void delete_shouldThrowExceptionIfBranchNotExists() {
         assertThrows(NotFoundException.class, () ->
                 branchService.delete(UUID.randomUUID()));
+    }
+
+    @Test
+    void getAll_shouldReturnEmptyList() {
+        assertTrue(branchService.getAll(0, 10).isEmpty());
+    }
+
+    @Test
+    void getAll_shouldReturnData() {
+        ClinicDto createdClinic = clinicService.create(clinicDto);
+        branchDto.setClinic(clinicMapper.toClinic(createdClinic));
+        branchService.create(branchDto);
+        List<BranchDto> branches = branchService.getAll(0, 10);
+
+        assertEquals(1, branches.size());
     }
 }

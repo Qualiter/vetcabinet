@@ -1,6 +1,7 @@
 package org.vetcabinet.branches.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.vetcabinet.branches.dto.BranchDto;
 import org.vetcabinet.branches.mapper.BranchMapper;
@@ -9,6 +10,8 @@ import org.vetcabinet.branches.repository.BranchRepository;
 import org.vetcabinet.exception.AlreadyExistsException;
 import org.vetcabinet.exception.NotFoundException;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -49,5 +52,12 @@ public class BranchServiceImpl implements BranchService {
         Branch branchData = branchRepository.findById(uuid)
                 .orElseThrow(() -> new NotFoundException("Данные о филиале не найдены"));
         branchRepository.delete(branchData);
+    }
+
+    @Override
+    public List<BranchDto> getAll(int offset, int limit) {
+        return branchRepository.findAll(PageRequest.of(offset, limit)).stream()
+                .sorted(Comparator.comparing(Branch::getCode))
+                .map(branchMapper::toBranchDto).toList();
     }
 }

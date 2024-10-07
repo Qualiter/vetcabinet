@@ -1,6 +1,7 @@
 package org.vetcabinet.cabinet.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.vetcabinet.cabinet.dto.CabinetDto;
 import org.vetcabinet.cabinet.mapper.CabinetMapper;
@@ -9,6 +10,8 @@ import org.vetcabinet.cabinet.repository.CabinetRepository;
 import org.vetcabinet.exception.AlreadyExistsException;
 import org.vetcabinet.exception.NotFoundException;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -49,5 +52,12 @@ public class CabinetServiceImpl implements CabinetService {
         Cabinet cabinetData = cabinetRepository.findById(uuid)
                 .orElseThrow(() -> new NotFoundException("Данные о кабинете не найдены"));
         cabinetRepository.delete(cabinetData);
+    }
+
+    @Override
+    public List<CabinetDto> getAll(int offset, int limit) {
+        return cabinetRepository.findAll(PageRequest.of(offset, limit)).stream()
+                .sorted(Comparator.comparing(Cabinet::getName))
+                .map(cabinetMapper::toCabinetDto).toList();
     }
 }
