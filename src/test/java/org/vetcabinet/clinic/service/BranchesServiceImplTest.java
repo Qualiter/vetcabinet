@@ -86,7 +86,7 @@ public class BranchesServiceImplTest {
 
         assertNotNull(updated);
         assertEquals(toUpdate.getCode(), updated.getCode());
-        assertEquals(toUpdate.getClinic(), updated.getClinic());
+        assertEquals(toUpdate.getClinic().getUuid(), updated.getClinic().getUuid());
         assertEquals(toUpdate.getIsMain(), updated.getIsMain());
         assertEquals(toUpdate.getName(), updated.getName());
         assertEquals(toUpdate.getShortName(), updated.getShortName());
@@ -113,7 +113,7 @@ public class BranchesServiceImplTest {
 
         assertNotNull(returned);
         assertEquals(createdBranch.getCode(), returned.getCode());
-        assertEquals(createdBranch.getClinic(), returned.getClinic());
+        assertEquals(createdBranch.getClinic().getUuid(), returned.getClinic().getUuid());
         assertEquals(createdBranch.getIsMain(), returned.getIsMain());
         assertEquals(createdBranch.getName(), returned.getName());
         assertEquals(createdBranch.getShortName(), returned.getShortName());
