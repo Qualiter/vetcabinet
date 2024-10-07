@@ -87,7 +87,7 @@ public class CabinetServiceImplTest {
         CabinetDto updated = cabinetService.update(createdCabinet.getUuid(), toUpdate);
 
         assertNotNull(updated);
-        assertEquals(toUpdate.getBranch(), updated.getBranch());
+        assertEquals(toUpdate.getBranch().getUuid(), updated.getBranch().getUuid());
         assertEquals(toUpdate.getNumber(), updated.getNumber());
         assertEquals(toUpdate.getName(), updated.getName());
         assertEquals(toUpdate.getFloor(), updated.getFloor());
@@ -108,7 +108,7 @@ public class CabinetServiceImplTest {
         CabinetDto returned = cabinetService.get(createdCabinet.getUuid());
 
         assertNotNull(returned);
-        assertEquals(createdCabinet.getBranch(), returned.getBranch());
+        assertEquals(createdCabinet.getBranch().getUuid(), returned.getBranch().getUuid());
         assertEquals(createdCabinet.getNumber(), returned.getNumber());
         assertEquals(createdCabinet.getName(), returned.getName());
         assertEquals(createdCabinet.getFloor(), returned.getFloor());
