@@ -11,8 +11,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.vetcabinet.config.jwt.JWTTokenFilter;
 import org.vetcabinet.user.service.CustomUserDetailsService;
-//import org.vetcabinet.user.service.CustomUserDetailsService;
+
+import static org.vetcabinet.config.SecurityConstants.RESOURCES_WHITE_LIST;
 
 @Configuration
 @EnableWebSecurity
@@ -21,16 +23,18 @@ import org.vetcabinet.user.service.CustomUserDetailsService;
 public class SecurityConfig {
 
     private final CustomUserDetailsService customUserDetailsService;
-    //private final JWTTokenFilter jwtTokenFilter;
+    private final JWTTokenFilter jwtTokenFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(final HttpSecurity http) throws Exception {
         http.cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("").permitAll()
+                        .requestMatchers(RESOURCES_WHITE_LIST.toArray(String[]::new)).permitAll()
+                        .requestMatchers("/users/auth").permitAll()
+                        .requestMatchers("/clinics/**").hasRole("ADMIN")
                 )
-                //.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .userDetailsService(customUserDetailsService);
         return http.build();
     }
