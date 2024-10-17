@@ -3,10 +3,13 @@ package org.vetcabinet.clinic.controller;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.vetcabinet.clinic.dto.ClinicDto;
 import org.vetcabinet.clinic.service.ClinicService;
+import org.vetcabinet.user.service.CustomUserDetails;
 
 import java.util.List;
 import java.util.UUID;
@@ -29,18 +32,18 @@ public class ClinicController {
     }
 
     @PatchMapping("/{uuid}")
-    public ClinicDto update(@RequestParam UUID uuid, @RequestBody ClinicDto clinic) {
+    public ClinicDto update(@PathVariable UUID uuid, @RequestBody ClinicDto clinic) {
         return service.update(uuid, clinic);
     }
 
     @GetMapping("/{uuid}")
-    public ClinicDto get(@RequestParam UUID uuid) {
+    public ClinicDto get(@PathVariable UUID uuid) {
         return service.get(uuid);
     }
 
     @DeleteMapping("/{uuid}")
     @ResponseStatus(NO_CONTENT)
-    public void delete(@RequestParam UUID uuid) {
+    public void delete(@PathVariable UUID uuid) {
         service.delete(uuid);
     }
 

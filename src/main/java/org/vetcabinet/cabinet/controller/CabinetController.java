@@ -26,18 +26,18 @@ public class CabinetController {
     }
 
     @PatchMapping("/{uuid}")
-    public CabinetDto update(@RequestParam UUID uuid, @RequestBody CabinetDto cabinet) {
+    public CabinetDto update(@PathVariable UUID uuid, @RequestBody CabinetDto cabinet) {
         return service.update(uuid, cabinet);
     }
 
     @GetMapping("/{uuid}")
-    public CabinetDto get(@RequestParam UUID uuid) {
+    public CabinetDto get(@PathVariable UUID uuid) {
         return service.get(uuid);
     }
 
     @DeleteMapping("/{uuid}")
     @ResponseStatus(NO_CONTENT)
-    public void delete(@RequestParam UUID uuid) {
+    public void delete(@PathVariable UUID uuid) {
         service.delete(uuid);
     }
 }

@@ -27,18 +27,18 @@ public class BranchController {
     }
 
     @PatchMapping("/{uuid}")
-    public BranchDto update(@RequestParam UUID uuid, @RequestBody BranchDto branch) {
+    public BranchDto update(@PathVariable UUID uuid, @RequestBody BranchDto branch) {
         return service.update(uuid, branch);
     }
 
     @GetMapping("/{uuid}")
-    public BranchDto get(@RequestParam UUID uuid) {
+    public BranchDto get(@PathVariable UUID uuid) {
         return service.get(uuid);
     }
 
     @DeleteMapping("/{uuid}")
     @ResponseStatus(NO_CONTENT)
-    public void delete(@RequestParam UUID uuid) {
+    public void delete(@PathVariable UUID uuid) {
         service.delete(uuid);
     }
 
