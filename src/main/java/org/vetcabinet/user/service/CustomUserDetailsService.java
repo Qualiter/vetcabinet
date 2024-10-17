@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.vetcabinet.user.UserRepository;
+import org.vetcabinet.user.repository.UserRepository;
 import org.vetcabinet.user.model.User;
 @Service
 @Slf4j
@@ -25,14 +25,13 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
        if (username.equals(adminUser)) {
-           //return new CustomUserDetails(null, adminUser, adminPassword, List.of(new SimpleGrantedAuthority("ROLE_" + adminRole)));
+           return new CustomUserDetails(null, adminUser, adminPassword, List.of(new SimpleGrantedAuthority("ROLE_" + adminRole)));
        } else {
            User user = userRepository.findUserByLogin(username).orElseThrow(() -> {
                log.error("User with such username: {} not found", username);
                return new UsernameNotFoundException("User with such username " + username + " not found");
            });
-           //return new CustomUserDetails(user);
+           return new CustomUserDetails(user);
        }
-       return null;
     }
 }

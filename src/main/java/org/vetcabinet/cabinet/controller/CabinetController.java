@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import org.vetcabinet.cabinet.dto.CabinetDto;
 import org.vetcabinet.cabinet.service.CabinetService;
 
-import java.util.List;
 import java.util.UUID;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -40,11 +39,5 @@ public class CabinetController {
     @ResponseStatus(NO_CONTENT)
     public void delete(@RequestParam UUID uuid) {
         service.delete(uuid);
-    }
-
-    @GetMapping
-    public List<CabinetDto> getAll(@RequestParam(defaultValue = "0") int offset,
-                                   @RequestParam(defaultValue = "10") int limit) {
-        return service.getAll(offset, limit);
     }
 }

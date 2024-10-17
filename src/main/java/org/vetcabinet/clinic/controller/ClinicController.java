@@ -1,5 +1,6 @@
 package org.vetcabinet.clinic.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -17,6 +18,7 @@ import static org.springframework.http.HttpStatus.NO_CONTENT;
 @RestController
 @RequestMapping("/clinics")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "Bearer Authentication")
 public class ClinicController {
     private final ClinicService service;
 
