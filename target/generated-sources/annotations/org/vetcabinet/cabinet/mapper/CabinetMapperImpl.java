@@ -7,7 +7,7 @@ import org.vetcabinet.cabinet.model.Cabinet;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-10-17T19:24:28+0300",
+    date = "2024-11-06T20:56:12+0300",
     comments = "version: 1.5.0.Final, compiler: javac, environment: Java 17.0.11 (Amazon.com Inc.)"
 )
 @Component

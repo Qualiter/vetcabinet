@@ -32,6 +32,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(RESOURCES_WHITE_LIST.toArray(String[]::new)).permitAll()
                         .requestMatchers("/users/auth").permitAll()
+                        .requestMatchers("/users/register").permitAll()
                         .requestMatchers("/clinics/**").hasRole("ADMIN")
                 )
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
