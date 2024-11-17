@@ -11,14 +11,10 @@ import java.util.List;
 @Setter
 @ToString
 @EqualsAndHashCode
-public class RegisterUserDto {
+public class RegisterUserDto extends BaseUserDto {
     private String login;
 
     private String password;
-
-    private String name;
-
-    private String surname;
 
     private String phone;
 

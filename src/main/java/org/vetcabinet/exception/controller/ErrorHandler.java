@@ -4,14 +4,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.vetcabinet.exception.AlreadyExistsException;
+import org.vetcabinet.exception.AuthorizationException;
 import org.vetcabinet.exception.NotFoundException;
 import org.vetcabinet.exception.model.ErrorResponse;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static org.springframework.http.HttpStatus.CONFLICT;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static org.springframework.http.HttpStatus.*;
 
 @RestControllerAdvice
 public class ErrorHandler {
@@ -31,5 +31,13 @@ public class ErrorHandler {
         return new ErrorResponse(exception.getMessage(),
                 LocalDateTime.now().format(PATTERN),
                 "Данные уже есть в системе");
+    }
+
+    @ExceptionHandler
+    @ResponseStatus(UNAUTHORIZED)
+    public ErrorResponse handleAuthorizationException(final AuthorizationException exception) {
+        return new ErrorResponse(exception.getMessage(),
+                LocalDateTime.now().format(PATTERN),
+                "Ошибка авторизации");
     }
 }

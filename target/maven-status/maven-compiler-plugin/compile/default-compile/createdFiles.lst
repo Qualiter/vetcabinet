@@ -52,5 +52,6 @@ org/vetcabinet/clinic/controller/ClinicController.class
 org/vetcabinet/clinic/model/ClinicType.class
 org/vetcabinet/user/dto/RegisterUserDto.class
 org/vetcabinet/branches/controller/BranchController.class
+org/vetcabinet/user/dto/BaseUserDto.class
 org/vetcabinet/clinic/dto/ClinicDto.class
 org/vetcabinet/exception/model/ErrorResponse.class
