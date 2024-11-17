@@ -7,7 +7,7 @@ import org.vetcabinet.branches.model.Branch;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-06T20:56:11+0300",
+    date = "2024-11-13T22:42:43+0300",
     comments = "version: 1.5.0.Final, compiler: javac, environment: Java 17.0.11 (Amazon.com Inc.)"
 )
 @Component

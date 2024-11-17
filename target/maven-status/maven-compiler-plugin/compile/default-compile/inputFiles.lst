@@ -30,6 +30,7 @@
 /Users/alesyabesedina/VetCabinet/src/main/java/org/vetcabinet/clinic/service/ClinicServiceImpl.java
 /Users/alesyabesedina/VetCabinet/src/main/java/org/vetcabinet/clinic/model/ClinicType.java
 /Users/alesyabesedina/VetCabinet/src/main/java/org/vetcabinet/exception/AlreadyExistsException.java
+/Users/alesyabesedina/VetCabinet/src/main/java/org/vetcabinet/user/dto/BaseUserDto.java
 /Users/alesyabesedina/VetCabinet/src/main/java/org/vetcabinet/user/repository/AddressRepository.java
 /Users/alesyabesedina/VetCabinet/src/main/java/org/vetcabinet/branches/controller/BranchController.java
 /Users/alesyabesedina/VetCabinet/src/main/java/org/vetcabinet/branches/dto/BranchDto.java

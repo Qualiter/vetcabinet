@@ -12,7 +12,7 @@ import org.vetcabinet.user.model.User;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-06T20:56:12+0300",
+    date = "2024-11-13T22:42:42+0300",
     comments = "version: 1.5.0.Final, compiler: javac, environment: Java 17.0.11 (Amazon.com Inc.)"
 )
 @Component
@@ -26,10 +26,10 @@ public class UserMapperImpl implements UserMapper {
 
         RegisterUserDto registerUserDto = new RegisterUserDto();
 
-        registerUserDto.setLogin( user.getLogin() );
-        registerUserDto.setPassword( user.getPassword() );
         registerUserDto.setName( user.getName() );
         registerUserDto.setSurname( user.getSurname() );
+        registerUserDto.setLogin( user.getLogin() );
+        registerUserDto.setPassword( user.getPassword() );
         registerUserDto.setPhone( user.getPhone() );
         String[] additionalPhones = user.getAdditionalPhones();
         if ( additionalPhones != null ) {
