@@ -3,13 +3,10 @@ package org.vetcabinet.clinic.controller;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.vetcabinet.clinic.dto.ClinicDto;
 import org.vetcabinet.clinic.service.ClinicService;
-import org.vetcabinet.user.service.CustomUserDetails;
 
 import java.util.List;
 import java.util.UUID;

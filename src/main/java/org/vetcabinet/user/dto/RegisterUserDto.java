@@ -16,11 +16,9 @@ public class RegisterUserDto extends BaseUserDto {
 
     private String password;
 
-    private String phone;
+    private PhoneDto phone;
 
-    private String[] additionalPhones;
-
-    private String email;
+    private EmailDto email;
 
     private String patronymic;
 
