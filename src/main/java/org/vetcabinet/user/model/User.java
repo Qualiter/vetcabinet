@@ -5,8 +5,8 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.UUID;
 import java.util.List;
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,11 +33,15 @@ public class User {
 
     private String patronymic;
 
-    private String phone;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "phone_id", nullable = false,
+            foreignKey = @ForeignKey(name = "USERS_PHONES_FK"))
+    private Phone phone;
 
-    private String[] additionalPhones;
-
-    private String email;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "email_id", nullable = false,
+            foreignKey = @ForeignKey(name = "USERS_EMAILS_FK"))
+    private Email email;
 
     private LocalDate birthday;
 

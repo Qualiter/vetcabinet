@@ -7,9 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.vetcabinet.user.model.User;
-import java.util.List;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @Builder
