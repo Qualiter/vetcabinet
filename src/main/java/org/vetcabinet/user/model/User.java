@@ -2,6 +2,7 @@ package org.vetcabinet.user.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.vetcabinet.address.model.Address;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

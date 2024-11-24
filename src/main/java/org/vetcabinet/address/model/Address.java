@@ -1,4 +1,4 @@
-package org.vetcabinet.user.model;
+package org.vetcabinet.address.model;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,6 +1,7 @@
 package org.vetcabinet.user.dto;
 
 import lombok.*;
+import org.vetcabinet.address.dto.RegisterAddressDto;
 
 import java.time.LocalDate;
 import java.util.List;
