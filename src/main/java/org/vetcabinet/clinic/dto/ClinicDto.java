@@ -6,26 +6,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.vetcabinet.clinic.model.ClinicType;
 
-import java.util.UUID;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClinicDto {
-    private UUID uuid;
     @NotBlank
     private String code;
+
     @NotBlank
     private String name;
+
     @NotBlank
     private String shortName;
+
     @NotBlank
     private ClinicType type;
-  
-    public ClinicDto(String code, String name, String shortName, ClinicType type) {
-        this.code = code;
-        this.name = name;
-        this.shortName = shortName;
-        this.type = type;
-    }
 }

@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.vetcabinet.branches.model.Branch;
+import org.vetcabinet.branch.model.Branch;
 
 import java.util.UUID;
 
@@ -19,13 +19,17 @@ public class Cabinet {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
+
     @ManyToOne
     @JoinColumn(name = "branch_uuid")
     private Branch branch;
+
     @Column(name = "number", nullable = false, unique = true)
-    private Long number;
+    private Integer number;
+
     @Column(name = "name", nullable = false)
     private String name;
+
     @Column(name = "floor", unique = true)
     private Integer floor;
 }

@@ -1,11 +1,11 @@
-package org.vetcabinet.branches.controller;
+package org.vetcabinet.branch.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.vetcabinet.branches.dto.BranchDto;
-import org.vetcabinet.branches.service.BranchService;
+import org.vetcabinet.branch.dto.BranchDto;
+import org.vetcabinet.branch.service.BranchService;
 
 import java.util.List;
 import java.util.UUID;

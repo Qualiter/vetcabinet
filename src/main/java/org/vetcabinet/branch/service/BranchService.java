@@ -1,6 +1,6 @@
-package org.vetcabinet.branches.service;
+package org.vetcabinet.branch.service;
 
-import org.vetcabinet.branches.dto.BranchDto;
+import org.vetcabinet.branch.dto.BranchDto;
 
 import java.util.List;
 import java.util.UUID;

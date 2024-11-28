@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.vetcabinet.clinic.dto.ClinicDto;
+import org.vetcabinet.clinic.mapper.ClinicMapper;
 import org.vetcabinet.clinic.model.ClinicType;
 import org.vetcabinet.clinic.repository.ClinicRepository;
 import org.vetcabinet.exception.AlreadyExistsException;
@@ -21,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClinicServiceImplTest {
     private final ClinicService clinicService;
     private final ClinicRepository clinicRepository;
+    private final ClinicMapper clinicMapper;
     private final ClinicDto clinicDto = new ClinicDto("Clinic code", "Clinic name",
             "Clinic short name", ClinicType.CLINIC);
 
@@ -53,7 +55,7 @@ class ClinicServiceImplTest {
         ClinicDto created = clinicService.create(clinicDto);
         ClinicDto toUpdate = new ClinicDto("Clinic code to update", "Clinic name to update",
                 "Clinic short name to update", ClinicType.CLINIC);
-        ClinicDto updated = clinicService.update(created.getUuid(), toUpdate);
+        ClinicDto updated = clinicService.update(clinicMapper.toClinic(created).getUuid(), toUpdate);
 
         assertNotNull(updated);
         assertEquals(toUpdate.getCode(), updated.getCode());
@@ -71,10 +73,9 @@ class ClinicServiceImplTest {
     @Test
     void get_shouldReturnDataForClinic() {
         ClinicDto created = clinicService.create(clinicDto);
-        ClinicDto returned = clinicService.get(created.getUuid());
+        ClinicDto returned = clinicService.get(clinicMapper.toClinic(created).getUuid());
 
         assertNotNull(returned);
-        assertEquals(created.getUuid(), returned.getUuid());
         assertEquals(created.getCode(), returned.getCode());
         assertEquals(created.getName(), returned.getName());
         assertEquals(created.getShortName(), returned.getShortName());
@@ -90,10 +91,10 @@ class ClinicServiceImplTest {
     @Test
     void delete_shouldDeleteClinicData() {
         ClinicDto created = clinicService.create(clinicDto);
-        clinicService.delete(created.getUuid());
+        clinicService.delete(clinicMapper.toClinic(created).getUuid());
 
         assertThrows(NotFoundException.class, () ->
-                clinicService.get(created.getUuid()));
+                clinicService.get(clinicMapper.toClinic(created).getUuid()));
     }
 
     @Test

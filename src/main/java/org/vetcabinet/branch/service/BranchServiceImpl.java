@@ -1,12 +1,12 @@
-package org.vetcabinet.branches.service;
+package org.vetcabinet.branch.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.vetcabinet.branches.dto.BranchDto;
-import org.vetcabinet.branches.mapper.BranchMapper;
-import org.vetcabinet.branches.model.Branch;
-import org.vetcabinet.branches.repository.BranchRepository;
+import org.vetcabinet.branch.dto.BranchDto;
+import org.vetcabinet.branch.mapper.BranchMapper;
+import org.vetcabinet.branch.model.Branch;
+import org.vetcabinet.branch.repository.BranchRepository;
 import org.vetcabinet.exception.AlreadyExistsException;
 import org.vetcabinet.exception.NotFoundException;
 

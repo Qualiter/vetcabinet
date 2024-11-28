@@ -1,8 +1,8 @@
-package org.vetcabinet.branches.mapper;
+package org.vetcabinet.branch.mapper;
 
 import org.mapstruct.Mapper;
-import org.vetcabinet.branches.dto.BranchDto;
-import org.vetcabinet.branches.model.Branch;
+import org.vetcabinet.branch.dto.BranchDto;
+import org.vetcabinet.branch.model.Branch;
 
 @Mapper(componentModel = "spring")
 public interface BranchMapper {
