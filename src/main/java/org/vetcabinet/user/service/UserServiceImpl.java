@@ -70,8 +70,9 @@ public class UserServiceImpl implements UserService {
         }
         Role role = roleRepository.findByName(RoleName.USER.name());
         user.setPassword(passwordEncoder.encode(registerUserDto.getPassword()));
-        user.setEmail(emailRepository.save(emailMapper.toEmail(registerUserDto.getEmail())));
-        user.setPhone(phoneRepository.save(phoneMapper.toPhone(registerUserDto.getPhone())));
+        // TODO: check this
+        //user.setEmail(emailRepository.save(emailMapper.toListEmail(registerUserDto.getEmail())));
+        //user.setPhone(phoneRepository.save(phoneMapper.toListPhone(registerUserDto.getPhone())));
         user.setRole(role);
         user.setIsActive(true);
         user.setRegistrationDate(LocalDateTime.now());

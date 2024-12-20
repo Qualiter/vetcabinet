@@ -37,7 +37,8 @@ public class Branch {
     @Column(name = "short_name", nullable = false)
     private String shortName;
 
-    @Column(name = "address", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "addresses", nullable = false)
     private Address address;
 
     @Column(name = "is_storeyed")

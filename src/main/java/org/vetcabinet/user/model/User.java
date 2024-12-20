@@ -34,15 +34,15 @@ public class User {
 
     private String patronymic;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @OneToMany(cascade = CascadeType.MERGE)
     @JoinColumn(name = "phone_id", nullable = false,
             foreignKey = @ForeignKey(name = "USERS_PHONES_FK"))
-    private Phone phone;
+    private List<Phone> phone;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @OneToMany(cascade = CascadeType.MERGE)
     @JoinColumn(name = "email_id", nullable = false,
             foreignKey = @ForeignKey(name = "USERS_EMAILS_FK"))
-    private Email email;
+    private List<Email> email;
 
     private LocalDate birthday;
 

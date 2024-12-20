@@ -34,6 +34,7 @@ public class SecurityConfig {
                         .requestMatchers("/users/auth").permitAll()
                         .requestMatchers("/users/register").permitAll()
                         .requestMatchers("/clinics/**").hasRole("ADMIN")
+                        .requestMatchers("/patients").permitAll()
                 )
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .userDetailsService(customUserDetailsService);

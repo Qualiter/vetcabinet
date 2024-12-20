@@ -2,6 +2,8 @@ package org.vetcabinet.address.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -24,8 +26,12 @@ public class Address {
     @Column(name = "full_address", nullable = false)
     private String fullAddress;
 
+    @JdbcTypeCode(SqlTypes.DECIMAL)
+    @Column(precision = 19, scale = 7)
     private BigDecimal latitude;
 
+    @JdbcTypeCode(SqlTypes.DECIMAL)
+    @Column(precision = 19, scale = 7)
     private BigDecimal longitude;
 
     @Column(name = "is_storeyed")
